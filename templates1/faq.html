@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+
+{% block title %} Sıkça Sorulan Sorular {% endblock %}
+{% block keywords %} {% endblock %}
+{% block description %} {% endblock %}
+
+{% block head %} 
+	<link rel="shortcut icon" href="{{ setting.icon.url }}" type="image/x-icon">
+{% endblock %}
+
+{% block sidebar %} 
+    {% include 'sidebar.html' %}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %} 
+  <!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="/">Anasayfa</a></li>
+				<li class="active">FAQ</li>
+			</ul>
+		</div>
+    </div>
+    <!-- /BREADCRUMB --> 
+    
+    <!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->	
+		<div class="row">
+				<div class="col-md-12">				
+					<div class="shiping-methods">
+						<div class="section-title">
+							<h4 class="title">Sıkça Sorulan Sorular</h4>
+						</div>
+						<script>
+							$( function() {
+							  $( "#accordion" ).accordion();
+							} );
+							</script>
+						<div id="accordion">
+							{% for rs in faq %}
+							<h3 style="background: orangered; color: white;">{{rs.question}}</h3>
+							<div>
+							  <p>{{ rs.answer }}</p>
+							</div>
+							{% endfor %}
+						</div>
+				
+				
+		</div>
+	</div>
+						
+                    </div>
+                    </div>
+                </div>
+           
+                    
+{% endblock content %}

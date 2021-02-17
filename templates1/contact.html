@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+
+{% block title %} Contact-{{ setting.company }}{% endblock %}
+{% block keywords %} {% endblock %}
+{% block description %} {% endblock %}
+
+{% block head %} 
+	<link rel="shortcut icon" href="{{ setting.icon.url }}" type="image/x-icon">
+{% endblock %}
+
+{% block sidebar %} 
+    {% include 'sidebar.html' %}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %} 
+  <!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="/">Anasayfa</a></li>
+				<li class="active">Contact</li>
+			</ul>
+		</div>
+    </div>
+    <!-- /BREADCRUMB --> 
+    
+    <!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->	
+		<div class="row">
+				<div class="col-md-6">
+
+				<!---------------Message ----------->
+				{% if messages %}
+				{% for message in messages %}
+			<div class="alert alert-success alert-dismissible " role="alert">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+					{{ message }}
+			</div>
+				{% endfor %}		
+			{% endif %}
+					<div class="shiping-methods">
+						<div class="section-title">
+							<h4 class="title">İletişim Form</h4>
+						</div>
+				<form action="" method="post">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<button class="btn bnt-primary">Send Message</button>
+				</form>
+		</div>
+	</div>
+					<div class="col-md-6">
+						<div class="shiping-methods">
+							<div class="section-title">
+								<h4 class="title">İletişim Bilgilerimiz</h4>
+							</div>
+							<div class="input-checkbox">
+								<label for="shipping-1"> {{ setting.contact|safe }}</label>
+								
+							</div>
+							
+						</div>
+					</div>
+						
+                    </div>
+                    </div>
+                </div>
+           
+                    
+{% endblock content %}

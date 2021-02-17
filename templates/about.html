@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include 'header.html' %}
+        {% include 'sidebar.html' %}
+        {% include 'navbar.html' %}
+
+        {% block content %}
+
+		<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="#">Anasayfa</a></li>
+				<li class="active">About Us</li>
+			</ul>
+			{{ setting.abouts|safe }}
+		</div>
+	</div>
+	<!-- /BREADCRUMB --> 
+        {% endblock content %}
+        
+        {% include 'footer.html' %}
+        {% include 'script.html' %}
+
+    </body>
+    </html>
